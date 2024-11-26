@@ -9,15 +9,21 @@ class LicenseNumberValidatorMixin:
         license_number = self.cleaned_data.get("license_number", "")
 
         if len(license_number) != 8:
-            raise forms.ValidationError("License number must be 8 characters long")
+            raise forms.ValidationError(
+                "License number must be 8 characters long"
+            )
 
         prefix, suffix = license_number[:3], license_number[3:]
 
         if not (prefix.isalpha() and prefix.isupper()):
-            raise forms.ValidationError("License number prefix must be three uppercase letters")
+            raise forms.ValidationError(
+                "License number prefix must be three uppercase letters"
+            )
 
         if not suffix.isdigit():
-            raise forms.ValidationError("License number suffix must be numeric")
+            raise forms.ValidationError(
+                "License number suffix must be numeric"
+            )
 
         return license_number
 
