@@ -63,7 +63,7 @@ urlpatterns = [
     ),
     path(
         "cars/<int:pk>/assign-or-delete/",
-        assign_user_to_car,
+        AssignUserToCarView,
         name="car-driver-assign",
     ),
 ]
