@@ -3,8 +3,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View, generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
+from django.http import HttpRequest, HttpResponse
 from taxi.forms import CarForm, DriverCreationForm, DriverLicenseUpdateForm
+from typing import Any
 from .models import Driver, Car, Manufacturer
 
 
