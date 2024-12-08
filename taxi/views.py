@@ -107,7 +107,13 @@ class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class AssignUserToCarView(LoginRequiredMixin, View):
-    def post(self, request: HttpRequest, pk: int, *args: Any, **kwargs: Any) -> HttpResponse:
+    def post(
+            self,
+            request: HttpRequest,
+            pk: int,
+            *args: Any,
+            **kwargs: Any
+    ) -> HttpResponse:
         car = get_object_or_404(Car, pk=pk)
 
         if not car.drivers.filter(pk=request.user.pk).exists():
