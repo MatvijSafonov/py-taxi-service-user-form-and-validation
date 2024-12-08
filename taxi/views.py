@@ -106,7 +106,7 @@ class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("taxi:driver-list")
 
 
-class AssignUserToCarView(LoginRequiredMixin, View):
+class assign_user_to_car(LoginRequiredMixin, View):
     def post(
             self,
             request: HttpRequest,
